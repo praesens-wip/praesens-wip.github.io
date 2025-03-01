@@ -18,6 +18,11 @@ main {
     flex: 1; /* Pushes the footer to the bottom */
 }
 
+.gif-style {
+    width: 500px;
+    height: auto;
+}
+
 header {
     color: white;
     padding: 10px;
@@ -38,7 +43,7 @@ footer {
     padding: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .gif-style {
         width: 90%;
         height: auto; /* Maintains aspect ratio */
