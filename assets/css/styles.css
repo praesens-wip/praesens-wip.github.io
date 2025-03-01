@@ -26,7 +26,7 @@ header {
 h1 {
     font-family: 'karima';
     color: black;
-    font-size: 8rem;
+    font-size: 4rem;
     margin: 0;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -38,3 +38,15 @@ footer {
     padding: 10px;
 }
 
+@media (max-width: 480px) {
+    .gif-style {
+        width: 90%;
+        height: auto; /* Maintains aspect ratio */
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    
+}
