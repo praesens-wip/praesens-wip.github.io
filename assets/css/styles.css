@@ -21,6 +21,7 @@ main {
 .gif-style {
     width: 500px;
     height: auto;
+    margin-bottom: 0rem;
 }
 
 header {
@@ -31,7 +32,16 @@ header {
 h1 {
     font-family: 'karima';
     color: black;
-    font-size: 4rem;
+    font-size: 6rem;
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'karima';
+    color: black;
+    font-size: 3rem;
     margin: 0;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -42,6 +52,21 @@ footer {
     background-color: white;
 }
 
+.intro {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    padding: 1rem;
+}
+
+footer {
+    margin: 2rem;
+    padding-bottom: 2rem;
+}
+
+
 @media (max-width: 768px) {
     .gif-style {
         width: 90%;
@@ -51,6 +76,4 @@ footer {
     h1 {
         font-size: 4rem;
     }
-
-    
 }
