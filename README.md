@@ -87,9 +87,69 @@ Edit the generated file and set `draft = false` when ready to publish.
 
 ### Adding to Collection
 
+You can add music albums to the collection in two ways:
+
+#### Manual Creation
+
 ```bash
-hugo new content collection/album-name.md
+hugo new content collection/album-name/index.md --kind collection
 ```
+
+#### Using Automated Scripts
+
+The `scripts/` folder contains Python scripts that automatically scrape album data and create collection entries:
+
+##### From Bandcamp
+
+```bash
+uv run scripts/create_collection_entry_from_bandcamp.py <bandcamp_url>
+```
+
+**Example:**
+```bash
+uv run scripts/create_collection_entry_from_bandcamp.py https://fugazi.bandcamp.com/album/instrument
+```
+
+**Features:**
+- Automatically extracts: artist, title, tracklist, cover art, genres, credits
+- Preserves newlines in credits
+- Handles quote escaping for TOML
+- No authentication required
+
+##### From Discogs
+
+```bash
+# Without token (25 requests/min)
+uv run scripts/create_collection_entry_from_discogs.py <discogs_url>
+
+# With token (60 requests/min - recommended)
+export DISCOGS_TOKEN=your_token_here
+uv run scripts/create_collection_entry_from_discogs.py <discogs_url>
+
+# With custom YouTube link
+uv run scripts/create_collection_entry_from_discogs.py <discogs_url> --youtube <youtube_url>
+```
+
+**Example:**
+```bash
+uv run scripts/create_collection_entry_from_discogs.py https://www.discogs.com/release/1152173-Idris-Muhammad-Turn-This-Mutha-Out
+```
+
+**Features:**
+- Uses official Discogs API
+- Automatically extracts: artist, title, year, label, catalog number, genres, tracklist, credits
+- Auto-extracts YouTube links from Discogs metadata
+- Supports vinyl side organization (Side A/B)
+- No token required (but recommended for higher rate limits)
+
+**Get a Discogs token:** https://www.discogs.com/settings/developers
+
+**What Gets Created:**
+Both scripts generate:
+- `content/collection/artist-album/index.md` - Album metadata and content
+- `content/collection/artist-album/cover.jpg` - Album cover art
+- Properly formatted TOML frontmatter with all album details
+- Streaming links (Spotify, Apple Music, Bandcamp, YouTube where available)
 
 ## Deployment
 
