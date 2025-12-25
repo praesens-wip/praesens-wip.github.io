@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<div class="home-container">
+
+    <div class="home-main">
+        <img src="{{ "images/impressions.gif" | relURL }}" alt="Präsens impressions" class="home-gif">
+    </div>
+
+    <div class="home-intro">
+        {{ .Content }}
+    </div>
+</div>
+
+{{ end }}

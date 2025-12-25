@@ -1,1 +1,15 @@
 .DS_Store
+
+# Hugo build artifacts
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+.hugo_build.lock
+
+# Backup files
+_backup/
+
+# IDE
+.idea/
+.vscode/

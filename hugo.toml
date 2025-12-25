@@ -1,0 +1,29 @@
+baseURL = 'https://praesens-wip.github.io/'
+languageCode = 'en-us'
+defaultContentLanguage = 'en-us'
+title = 'Präsens'
+theme = 'typo'
+
+[params]
+# Description for the site
+description = 'Music in presence - creating spaces where sound connects, resonates, and inspires'
+
+# Copyright
+copyright = '© 2025 Präsens Community'
+
+# Breadcrumbs
+[params.breadcrumbs]
+enabled = false
+
+# Main menu navigation (typo theme format)
+[[params.menu]]
+name = "blog"
+url = "/blog"
+
+[[params.menu]]
+name = "collection"
+url = "/collection"
+
+# Social links (optional, can be customized later)
+[params.social]
+email = 'praesens.wip@gmail.com'
