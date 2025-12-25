@@ -11,6 +11,9 @@ description = 'Music in presence - creating spaces where sound connects, resonat
 # Copyright
 copyright = '© 2025 Präsens Community'
 
+# Custom footer
+footerContent = '© 2025 Präsens Community'
+
 # Breadcrumbs
 [params.breadcrumbs]
 enabled = false

@@ -1,6 +1,6 @@
 +++
 date = '2025-12-25T15:34:02+01:00'
-draft = false
+draft = true
 title = 'Welcome to Präsens'
 description = 'Introducing our new digital space for music, community, and presence'
 +++
