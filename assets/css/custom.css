@@ -6,6 +6,11 @@ h1, h2 {
     font-family: 'karima', sans-serif !important;
 }
 
+/* Navigation links - override theme's small font-size */
+.header p {
+    font-size: medium;
+}
+
 /* Hide main heading on list pages (blog, collection, about) */
 .collection-list-container > h1,
 .blog-list-container > h1,
