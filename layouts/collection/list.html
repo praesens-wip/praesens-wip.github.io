@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="collection-list-container">
+
+  {{ partial "breadcrumbs.html" . }}
+
+  {{ .Content }}
+
+  <div class="album-grid">
+    {{ range .Pages }}
+    <div class="album-card">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Resources.GetMatch "cover.*" }}
+        <div class="album-card-cover">
+          <img src="{{ .RelPermalink }}" alt="{{ $.Title }} cover" />
+        </div>
+        {{ end }}
+        <div class="album-card-info">
+          <p class="album-card-artist">{{ .Params.album.artist }}</p>
+          <p class="album-card-title">{{ .Title }}{{ with .Params.album.releaseYear }}, {{ . }}{{ end }}</p>
+        </div>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}

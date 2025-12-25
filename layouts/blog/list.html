@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="blog-list-container">
+
+  {{ partial "breadcrumbs.html" . }}
+
+  {{ .Content }}
+
+  <div class="post-list">
+    {{ range .Pages }}
+    {{ partial "post-entry.html" . }}
+    {{ end }}
+  </div>
+
+  {{ if .Paginator }}
+  {{ partial "pagination-controls.html" .Paginator }}
+  {{ end }}
+
+</div>
+{{ end }}

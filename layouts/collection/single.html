@@ -1,0 +1,97 @@
+{{ define "main" }}
+<div class="album-container">
+  <article class="album-single">
+
+    <!-- Cover Image (from page resources) -->
+    {{ with .Resources.GetMatch "cover.*" }}
+    <div class="album-cover">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }} cover art" />
+    </div>
+    {{ end }}
+
+    <!-- Album Header -->
+    <header class="album-header">
+      <h1 class="album-title">{{ .Params.album.artist }}</h1>
+      <h2 class="album-release-title">{{ .Title }}</h2>
+
+      <!-- Metadata line -->
+      <div class="album-metadata">
+        {{ if .Params.album.genres }}
+        <span>{{ delimit .Params.album.genres ", " }}</span>
+        {{ end }}
+        {{ if and .Params.album.genres .Params.album.label }}
+        <span class="metadata-separator">•</span>
+        {{ end }}
+        {{ with .Params.album.label }}
+        <span>{{ . }}</span>
+        {{ end }}
+        {{ with .Params.album.catalogNumber }}
+        <span class="metadata-separator">•</span>
+        <span>{{ . }}</span>
+        {{ end }}
+        {{ with .Params.album.releaseYear }}
+        <span class="metadata-separator">•</span>
+        <span>{{ . }}</span>
+        {{ end }}
+      </div>
+    </header>
+
+    <!-- Streaming Links -->
+    {{ if or .Params.album.links.spotify .Params.album.links.bandcamp .Params.album.links.appleMusic }}
+    <div class="album-streaming-links">
+      {{ with .Params.album.links.spotify }}
+      <a href="{{ . }}" target="_blank" rel="noopener">Spotify</a>
+      {{ end }}
+      {{ with .Params.album.links.bandcamp }}
+      <a href="{{ . }}" target="_blank" rel="noopener">Bandcamp</a>
+      {{ end }}
+      {{ with .Params.album.links.appleMusic }}
+      <a href="{{ . }}" target="_blank" rel="noopener">Apple Music</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Album Description -->
+    {{ if .Content }}
+    <div class="album-description">
+      {{ .Content }}
+    </div>
+    {{ end }}
+
+    <!-- Tracklist -->
+    {{ with .Params.album.tracklist }}
+    <div class="album-tracklist">
+      <h3>Tracklist</h3>
+      {{ range . }}
+      <div class="tracklist-side">
+        <h4 class="side-label">{{ .side }}</h4>
+        <ul class="tracks">
+          {{ range .tracks }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Credits -->
+    {{ with .Params.album.credits }}
+    <div class="album-credits">
+      <h3>Credits</h3>
+      {{ range . }}
+      <div class="credits-section">
+        <h4>{{ .section }}</h4>
+        <ul>
+          {{ range .people }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </article>
+</div>
+{{ end }}

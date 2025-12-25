@@ -6,6 +6,12 @@ h1, h2 {
     font-family: 'karima', sans-serif !important;
 }
 
+/* Hide main heading on list pages (blog, collection) */
+.collection-list-container > h1,
+.blog-list-container > h1 {
+    display: none;
+}
+
 /* Home page specific styles */
 .home-header h1 {
     font-family: 'karima';
@@ -64,5 +70,287 @@ h1, h2 {
     .home-intro {
         font-size: 1rem;
         line-height: 1.4;
+    }
+}
+
+/* ============================================
+   ALBUM SINGLE PAGE STYLES
+   ============================================ */
+
+.album-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Album Header */
+.album-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.album-title {
+    font-family: 'karima', sans-serif !important;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+.album-release-title {
+    font-family: 'karima', sans-serif !important;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: var(--content-secondary);
+}
+
+.album-metadata {
+    font-size: 0.9rem;
+    color: var(--content-secondary);
+    margin-top: 0.5rem;
+}
+
+.metadata-separator {
+    margin: 0 0.5rem;
+}
+
+/* Cover Image */
+.album-cover {
+    margin: 0 0 3rem 0;
+    text-align: center;
+}
+
+.album-cover img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Streaming Links */
+.album-streaming-links {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.album-streaming-links a {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--content-primary);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.album-streaming-links a:hover {
+    background-color: var(--content-primary);
+    color: var(--background);
+}
+
+/* Album Description */
+.album-description {
+    margin: 3rem 0;
+    line-height: 1.7;
+    text-align: left;
+}
+
+/* Tracklist */
+.album-tracklist {
+    margin: 3rem 0;
+}
+
+.album-tracklist h3 {
+    font-family: 'karima', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    grid-column: 1 / -1;
+}
+
+/* Two-column grid for sides */
+.album-tracklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.tracklist-side {
+    margin-bottom: 0;
+}
+
+.side-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--content-secondary);
+}
+
+.album-tracklist .tracks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.album-tracklist .tracks li {
+    margin: 0;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+}
+
+.album-tracklist .tracks li:last-child {
+    border-bottom: none;
+}
+
+/* Credits */
+.album-credits {
+    margin: 3rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.album-credits h3 {
+    font-family: 'karima', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.credits-section {
+    margin-bottom: 1.5rem;
+}
+
+.credits-section h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--content-secondary);
+}
+
+.credits-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.credits-section ul li {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   COLLECTION LIST PAGE STYLES
+   ============================================ */
+
+.collection-list-container {
+    max-width: var(--main-width);
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.album-card {
+    transition: transform 0.2s;
+}
+
+.album-card:hover {
+    transform: translateY(-4px);
+}
+
+.album-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.album-card-cover {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.album-card-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.album-card:hover .album-card-cover img {
+    transform: scale(1.05);
+}
+
+.album-card-info {
+    text-align: center;
+}
+
+.album-card-artist {
+    font-weight: 600;
+    margin: 0.5rem 0 0.25rem 0;
+    font-size: 1rem;
+}
+
+.album-card-title {
+    margin: 0.25rem 0;
+    color: var(--content-secondary);
+    font-size: 0.95rem;
+}
+
+.album-card-year {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.85rem;
+    color: var(--content-secondary);
+}
+
+/* ============================================
+   ALBUM RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet and larger - 2 columns */
+@media (min-width: 768px) {
+    .album-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Mobile - adjustments */
+@media (max-width: 767px) {
+    .album-title {
+        font-size: 2rem;
+    }
+
+    .album-release-title {
+        font-size: 1.5rem;
+    }
+
+    .album-cover img {
+        max-width: 100%;
+    }
+
+    .album-grid {
+        gap: 1.5rem;
+    }
+
+    .album-streaming-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .album-streaming-links a {
+        display: block;
+    }
+
+    /* Stack tracklist on mobile */
+    .album-tracklist {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
