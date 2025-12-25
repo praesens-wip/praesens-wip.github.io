@@ -6,9 +6,10 @@ h1, h2 {
     font-family: 'karima', sans-serif !important;
 }
 
-/* Hide main heading on list pages (blog, collection) */
+/* Hide main heading on list pages (blog, collection, about) */
 .collection-list-container > h1,
-.blog-list-container > h1 {
+.blog-list-container > h1,
+.about-container > h1 {
     display: none;
 }
 

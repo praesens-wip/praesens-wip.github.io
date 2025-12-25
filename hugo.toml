@@ -20,12 +20,17 @@ enabled = false
 
 # Main menu navigation (typo theme format)
 [[params.menu]]
+name = "collection"
+url = "/collection"
+
+[[params.menu]]
 name = "blog"
 url = "/blog"
 
+
 [[params.menu]]
-name = "collection"
-url = "/collection"
+name = "about"
+url = "/about"
 
 # Social links (optional, can be customized later)
 [params.social]
