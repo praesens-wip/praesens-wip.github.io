@@ -12,9 +12,9 @@ catalogNumber = "KU-34"
 genres = ["Jazz", "Funk / Soul", "Jazz-Funk", "Disco"]
 
 [album.links]
-spotify = ""
+spotify = "https://open.spotify.com/album/4PznnWq19AwatCG4lsyb5I"
 bandcamp = ""
-appleMusic = ""
+appleMusic = "https://music.apple.com/us/album/turn-this-mutha-out/1183434429"
 youtube = "https://www.youtube.com/watch?v=0skigTyA4NE"
 
 [[album.tracklist]]

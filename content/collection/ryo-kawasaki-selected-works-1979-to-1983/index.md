@@ -6,15 +6,15 @@ description = "After the sublime releases of parts 1 and 2 from B.J. Smiths ‘B
 
 [album]
 artist = "Ryo Kawasaki"
-releaseYear = 2025
+releaseYear = 2016
 label = ""
 catalogNumber = ""
 genres = ["Electronic", "Experimental", "Jazz", "Jazz Fusion", "Estonia"]
 
 [album.links]
-spotify = ""
+spotify = "https://open.spotify.com/album/0QeDOg0fptztjppQdtJW2C"
 bandcamp = "https://ryokawasaki.bandcamp.com/album/selected-works-1979-to-1983"
-appleMusic = ""
+appleMusic = "https://music.apple.com/us/album/selected-works-1979-to-1983/1373770240"
 
 [[album.tracklist]]
 side = "Side A"

@@ -12,9 +12,9 @@ catalogNumber = ""
 genres = ["Dischord", "Punk", "Washington DC", "dischord", "dischord records"]
 
 [album.links]
-spotify = ""
+spotify = "https://open.spotify.com/album/3tnzZhTTjRTExYc9odG0dt"
 bandcamp = "https://fugazi.bandcamp.com/album/instrument"
-appleMusic = ""
+appleMusic = "https://music.apple.com/us/album/instrument/49250233"
 
 [[album.tracklist]]
 side = "Side A"
