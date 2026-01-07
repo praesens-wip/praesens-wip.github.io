@@ -28,8 +28,7 @@ praesens-wip.github.io/
 │       ├── audio-system.js         (copy of audio-player/js/)
 │       └── bandcamp-stream-loader.js
 │
-├── netlify/functions/             # Netlify function links
-│   └── get-bandcamp-stream.js → ../../audio-player/functions/get-bandcamp-stream.js
+├── netlify.toml                   # Netlify config (points functions to audio-player/)
 │
 ├── layouts/
 │   ├── baseof.html                # Loads scripts from audio-player/
@@ -118,7 +117,6 @@ When modifying audio player code:
 
 DO NOT manually edit:
 - ❌ `static/audio-player/js/` (will be overwritten)
-- ❌ `netlify/functions/get-bandcamp-stream.js` (symlink to source)
 
 ## Testing Locations
 

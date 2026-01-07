@@ -103,9 +103,10 @@ bandcamp = "https://artist.bandcamp.com/album/name"
 ```
 
 ### In Netlify
-Symlink in `netlify/functions/`:
-```
-get-bandcamp-stream.js -> ../../audio-player/functions/get-bandcamp-stream.js
+Configuration in `netlify.toml`:
+```toml
+[functions]
+directory = "audio-player/functions"
 ```
 
 ## Development Workflow

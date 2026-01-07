@@ -6,15 +6,15 @@ Overview of how the repository is organized, with emphasis on the new audio-play
 
 ```
 praesens-wip.github.io/
-├── audio-player/           🎵 AUDIO PLAYER MODULE (NEW)
+├── audio-player/           🎵 AUDIO PLAYER MODULE
 ├── content/                📄 Content files
 ├── layouts/                🏗️  Hugo templates
 ├── static/                 📦 Static files
 ├── themes/                 🎨 Theme files
 ├── tests/                  ✅ Test files (legacy)
-├── netlify/                ⚡ Netlify functions
 ├── assets/                 🎨 Asset sources
 ├── scripts/                🔧 Build scripts
+├── netlify.toml            ⚡ Netlify config (points to audio-player/functions)
 └── config files            ⚙️ Configuration
 ```
 
@@ -94,8 +94,9 @@ static/audio-player/js/  ← Files served to browsers
 
 ### For Netlify Deployment
 ```
-netlify/functions/
-└── get-bandcamp-stream.js ← Symlink to source
+netlify.toml                       ← Points to audio-player/functions/
+audio-player/functions/
+└── get-bandcamp-stream.js         ← Single source of truth
 ```
 
 ### For Documentation
