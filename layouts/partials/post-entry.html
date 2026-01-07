@@ -1,0 +1,11 @@
+<article class="post-entry">
+  <h3>
+    <a href="{{ .RelPermalink }}" class="post-link">{{ .Title }}</a>
+  </h3>
+  {{ with .Date }}
+  <p class="post-date">{{ .Format "January 2, 2006" }}</p>
+  {{ end }}
+  {{ with .Description }}
+  <p class="post-summary">{{ . }}</p>
+  {{ end }}
+</article>

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "track-1",
+    "type": "sc",
+    "artist": "Sokkohai",
+    "title": "KUDAMM 98",
+    "url": "https://soundcloud.com/sokkohai/kudamm-98"
+  },
+  {
+    "id": "track-2",
+    "type": "sc",
+    "artist": "BEEN TRILL",
+    "title": "WET OUT HERE",
+    "url": "https://soundcloud.com/stussy/wet-out-here-mix-by-been-trill"
+  },
+  {
+    "id": "track-3",
+    "type": "sc",
+    "artist": "Fish",
+    "title": "No Life - Side A",
+    "url": "https://soundcloud.com/fishusa/fish-no-life-side-a"
+  },
+  {
+    "id": "track-4",
+    "type": "sc",
+    "artist": "la oreja de van nistelrooy",
+    "title": "Tangos Rumbas y Chief Keef Popurrí",
+    "url": "https://soundcloud.com/melquiades600/tangos-rumbas-y-chief-keef-popurri"
+  },
+  {
+    "id": "track-5",
+    "type": "sc",
+    "artist": "Sokkohai",
+    "title": "summertime",
+    "url": "https://soundcloud.com/sokkohai/locked-grooves-vol1"
+  },
+  {
+    "id": "track-6",
+    "type": "sc",
+    "artist": "Vegyn",
+    "title": "Makeshift Tourniquet",
+    "url": "https://soundcloud.com/vegyn/makeshift-tourniquet?in=sokkohai/sets/baba-spuren/"
+  },
+  {
+    "id": "track-7",
+    "type": "sc",
+    "artist": "DJ Fat Junt",
+    "title": "Glock Nine",
+    "url": "https://soundcloud.com/dj-fat-junt/dj-fat-junt-glock-nine"
+  },
+  {
+    "id": "track-8",
+    "type": "bc",
+    "artist": "slowerpace",
+    "title": "Elevator Ride < interlude >",
+    "url": "https://slowerpace.bandcamp.com/track/elevator-ride-interlude",
+    "bcId": "1610703706",
+    "bcAlbumId": "3816086761"
+  },
+  {
+    "id": "track-9",
+    "type": "own",
+    "artist": "Sokkohai",
+    "title": "Bucket Listener Watches The Stars",
+    "downloadUrl": "/public/downloads/Bucket Listener Watches The Stars.mp3",
+    "style": "RMX"
+  }
+]

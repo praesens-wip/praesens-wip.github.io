@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    
+    <!-- CSS -->
+    {{ $css := resources.Get "css/custom.css" }}
+    {{ if $css }}
+      {{ $css = $css | minify }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+    {{ end }}
+    
+    <!-- Font -->
+    <link rel="preload" href="{{ "fonts/karima.ttf" | relURL }}" as="font" type="font/ttf" crossorigin />
+    
+    <!-- Head hooks -->
+    {{ partial "hooks/head_end" . }}
+  </head>
+  <body>
+    {{ partial "header" . }}
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer" . }}
+  </body>
+</html>
