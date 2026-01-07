@@ -62,6 +62,10 @@ exports.handler = async function(event, context) {
         let streamUrl = null;
         let duration = 0;
 
+        // Extract numeric album ID from HTML (for embed iframe)
+        const albumIdMatch = html.match(/album=(\d+)/);
+        const numericAlbumId = albumIdMatch ? albumIdMatch[1] : null;
+
         // Try parsing JSON (Best Method)
         try {
             const jsonData = JSON.parse(dataStr);
@@ -117,7 +121,7 @@ exports.handler = async function(event, context) {
                 "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ streamUrl, duration, trackId, albumId })
+            body: JSON.stringify({ streamUrl, duration, trackId, albumId, numericAlbumId })
         };
 
     } catch (error) {

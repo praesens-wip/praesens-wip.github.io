@@ -4,10 +4,16 @@ function initAudioPlayers() {
 		const type = el.getAttribute('data-type');
 		const url = el.getAttribute('data-url');
 		if (type === 'bandcamp') {
-			// Bandcamp Album-URL zu Embed-ID extrahieren
-			const match = url.match(/bandcamp\.com\/album\/([a-zA-Z0-9-_]+)/);
-			const albumId = match ? match[1] : '';
-			// Bandcamp Embed
+			// Use numeric album ID from function response if available
+			let albumId = el.getAttribute('data-album-id');
+			
+			// Fallback: try to extract from URL (old method)
+			if (!albumId) {
+				const match = url.match(/bandcamp\.com\/album\/([a-zA-Z0-9-_]+)/);
+				albumId = match ? match[1] : '';
+			}
+			
+			// Bandcamp Embed - prefer numeric ID for reliability
 			el.innerHTML = `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless></iframe>`;
 		} else if (type === 'soundcloud') {
 			// SoundCloud Embed

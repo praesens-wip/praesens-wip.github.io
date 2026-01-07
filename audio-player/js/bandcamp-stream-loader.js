@@ -50,12 +50,24 @@ function initBandcampStreams() {
 
     const streamData = await loadBandcampStreamData(bandcampUrl);
     
-    if (streamData && streamData.streamUrl) {
+    if (streamData) {
       // Store stream data on the player element for potential use
-      player.setAttribute('data-stream-url', streamData.streamUrl);
-      player.setAttribute('data-duration', streamData.duration);
-      player.setAttribute('data-track-id', streamData.trackId);
-      player.setAttribute('data-album-id', streamData.albumId);
+      if (streamData.streamUrl) {
+        player.setAttribute('data-stream-url', streamData.streamUrl);
+      }
+      if (streamData.duration) {
+        player.setAttribute('data-duration', streamData.duration);
+      }
+      if (streamData.trackId) {
+        player.setAttribute('data-track-id', streamData.trackId);
+      }
+      if (streamData.albumId) {
+        player.setAttribute('data-album-id', streamData.albumId);
+      }
+      // Use numeric album ID for embed (highest priority)
+      if (streamData.numericAlbumId) {
+        player.setAttribute('data-album-id', streamData.numericAlbumId);
+      }
       
       // Dispatch custom event for other scripts to listen
       const event = new CustomEvent('bandcamp-stream-loaded', {
