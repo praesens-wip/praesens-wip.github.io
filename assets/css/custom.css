@@ -149,6 +149,20 @@ h1, h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Audio Players */
+.album-audio {
+    margin: 2rem 0;
+}
+
+.album-audio-player {
+    margin: 1.5rem auto;
+    max-width: 100%;
+}
+
+.album-audio-player iframe {
+    max-width: 100%;
+}
+
 /* Streaming Links */
 .album-streaming-links {
     text-align: center;

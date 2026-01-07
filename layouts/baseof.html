@@ -25,6 +25,7 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer" . }}
-    <script src="/assets/js/audio-system.js"></script>
+    <script src="{{ "audio-player/js/audio-system.js" | relURL }}"></script>
+    <script src="{{ "audio-player/js/bandcamp-stream-loader.js" | relURL }}"></script>
   </body>
 </html>

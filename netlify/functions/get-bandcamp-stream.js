@@ -1,1 +1,1 @@
-// Kopie von get-bandcamp-stream.js aus nvd3
+../../audio-player/functions/get-bandcamp-stream.js
