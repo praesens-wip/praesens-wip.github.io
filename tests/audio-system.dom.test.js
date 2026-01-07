@@ -18,9 +18,10 @@ describe('audio-system.js DOM Player Integration', () => {
   });
 
   it('renders Bandcamp and SoundCloud players', async () => {
-    await loadScript('/Users/joeldebeljak/other_repos/praesens-wip.github.io/assets/js/audio-system.js');
-    // Wait for DOMContentLoaded and script execution
-    await new Promise(r => setTimeout(r, 50));
+    // Manually call the function since DOMContentLoaded won't fire in jest
+    const { initAudioPlayers } = require('/Users/joeldebeljak/other_repos/praesens-wip.github.io/assets/js/audio-system.js');
+    initAudioPlayers();
+    
     const bandcamp = document.querySelector('.album-audio-player[data-type="bandcamp"]');
     expect(bandcamp.innerHTML).toMatch(/iframe/);
     expect(bandcamp.innerHTML).toMatch(/bandcamp.com\/EmbeddedPlayer/);
@@ -31,8 +32,9 @@ describe('audio-system.js DOM Player Integration', () => {
 
   it('does not render player for other types', async () => {
     document.body.innerHTML += '<div class="album-audio-player" data-type="spotify" data-url="https://open.spotify.com/album/xyz"></div>';
-    await loadScript('/Users/joeldebeljak/other_repos/praesens-wip.github.io/assets/js/audio-system.js');
-    await new Promise(r => setTimeout(r, 50));
+    const { initAudioPlayers } = require('/Users/joeldebeljak/other_repos/praesens-wip.github.io/assets/js/audio-system.js');
+    initAudioPlayers();
+    
     const spotify = document.querySelector('.album-audio-player[data-type="spotify"]');
     expect(spotify.innerHTML).toBe('');
   });
