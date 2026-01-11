@@ -64,8 +64,13 @@ When you push to GitHub, Netlify automatically:
 ## How It Works
 
 1. **Hugo Template** renders the album page with Bandcamp link
-2. **Audio System Script** creates the Bandcamp embed iframe
-3. **Stream Loader Script** fetches stream metadata from the Bandcamp link
+2. **Stream Loader Script** fetches stream metadata from the Bandcamp link
+   - Extracts numeric album ID (required for embeds to work)
+   - Gets stream URL, duration, and track info
+   - Sets `data-album-id` attribute on player element
+3. **Audio System Script** waits for numeric album ID, then creates the iframe
+   - Only renders with numeric ID (slug-based embeds cause "not available" error)
+   - Creates small embedded player (42px height)
 4. **Player displays** the embedded player with play controls
 
 ## Testing Locally
@@ -96,24 +101,35 @@ console.log(player.dataset);
 // Should show: { 
 //   type: "bandcamp", 
 //   url: "...", 
-//   streamUrl: "...", 
-//   duration: "...", 
-//   trackId: "...", 
-//   albumId: "..."
+//   albumId: "1234567890",     // ← MUST be numeric ID
+//   streamUrl: "https://t4.bcbits.com/...",
+//   duration: "300.5", 
+//   trackId: "987654321"
 // }
 ```
 
 ## Troubleshooting
 
-### Bandcamp player shows error
-- Check Bandcamp link is valid: `https://artist.bandcamp.com/album/slug`
-- Some embeds may have restrictions (password protected, etc.)
-- Player iframe still works even if stream metadata fails to load
+### Bandcamp player shows "Sorry, this track or album is not available"
+**This means the numeric album ID wasn't set properly.**
+- Check Network tab: `get-bandcamp-stream` response should include `numericAlbumId`
+- Verify in Console: `player.dataset.albumId` should be all numbers (e.g., `"1899039788"`)
+- If missing: wait 2-3 seconds (stream loader may still be fetching)
+- If still missing: check backend function is working correctly
+- **Never** use slug-based embeds (they cause this error)
+
+### Bandcamp player doesn't appear at all
+- Check if `data-album-id` is set (see verification above)
+- If not set: stream loader may have failed
+- Check Network tab for errors in `get-bandcamp-stream` request
+- Verify Bandcamp URL is correct and album exists
 
 ### Stream URL not loading
 - Open Network tab in DevTools
 - Check `get-bandcamp-stream` response
+- Should include: `streamUrl`, `duration`, `trackId`, `numericAlbumId`
 - May fail if Bandcamp HTML structure changed
+- Player still displays even without stream URL
 
 ### Cover image not showing
 - Must be named `cover.jpg` or `cover.png`
@@ -138,11 +154,12 @@ Key files you're working with:
 
 | File | Purpose |
 |------|---------|
-| `content/collection/{slug}/index.md` | Album content |
-| `layouts/collection/single.html` | Album page template |
-| `static/js/audio-system.js` | Renders embeds |
-| `static/js/bandcamp-stream-loader.js` | Fetches stream data |
-| `netlify/functions/get-bandcamp-stream.js` | Backend extractor |
+| `content/collection/{slug}/index.md` | Album content (Bandcamp link in frontmatter) |
+| `layouts/collection/single.html` | Album page template (creates player div) |
+| `audio-player/js/audio-system.js` | Renders Bandcamp iframe with numeric ID |
+| `audio-player/js/bandcamp-stream-loader.js` | Fetches metadata and sets numeric album ID |
+| `audio-player/functions/get-bandcamp-stream.js` | Backend function (extracts from Bandcamp HTML) |
+| `static/audio-player/js/*` | Deployed copies of frontend scripts |
 
 ## Next Steps
 
