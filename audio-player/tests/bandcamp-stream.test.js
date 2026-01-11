@@ -52,7 +52,7 @@ describe('Bandcamp Stream Extractor', () => {
       .replace(/&/g, '&amp;')
       .replace(/"/g, '&quot;');
     
-    const html = `<div data-tralbum="${jsonStr}" />`;
+    const html = `<div data-tralbum="${jsonStr}" /><a href="https://bandcamp.com/EmbeddedPlayer/album=99999999/"></a>`;
 
     const mockGet = jest.fn((url, callback) => {
       const mockRes = {
@@ -92,7 +92,7 @@ describe('Bandcamp Stream Extractor', () => {
       .replace(/&/g, '&amp;')
       .replace(/"/g, '&quot;');
     
-    const html = `<div data-tralbum="${jsonStr}" />`;
+    const html = `<div data-tralbum="${jsonStr}" /><a href="https://bandcamp.com/EmbeddedPlayer/album=88888888/"></a>`;
 
     let callCount = 0;
     const mockGet = jest.fn((url, callback) => {

@@ -11,7 +11,9 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:jest-environment-jsdom@^30.2.0"
+        "npm:jest-environment-jsdom@^30.2.0",
+        "npm:jest@^30.2.0",
+        "npm:netlify-cli@^23.13.1"
       ]
     }
   }

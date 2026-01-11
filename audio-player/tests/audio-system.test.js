@@ -11,8 +11,11 @@ describe('audio-system.js', () => {
   });
 
   it('should render Bandcamp player iframe', () => {
-    initAudioPlayers();
     const bandcamp = document.querySelector('.album-audio-player[data-type="bandcamp"]');
+    // Simulate stream loader setting the numeric album ID
+    bandcamp.setAttribute('data-album-id', '1234567890');
+    
+    initAudioPlayers();
     expect(bandcamp.innerHTML).toMatch(/iframe/);
     expect(bandcamp.innerHTML).toMatch(/bandcamp.com\/EmbeddedPlayer/);
   });
@@ -32,8 +35,11 @@ describe('audio-system.js', () => {
   });
 
   it('renders Bandcamp and SoundCloud players', () => {
-    initAudioPlayers();
     const bandcamp = document.querySelector('.album-audio-player[data-type="bandcamp"]');
+    // Simulate stream loader setting the numeric album ID
+    bandcamp.setAttribute('data-album-id', '1234567890');
+    
+    initAudioPlayers();
     expect(bandcamp.innerHTML).toMatch(/iframe/);
     expect(bandcamp.innerHTML).toMatch(/bandcamp.com\/EmbeddedPlayer/);
     const soundcloud = document.querySelector('.album-audio-player[data-type="soundcloud"]');

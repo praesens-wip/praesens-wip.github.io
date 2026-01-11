@@ -20,9 +20,13 @@ describe('audio-system.js DOM Player Integration', () => {
   it('renders Bandcamp and SoundCloud players', async () => {
     // Manually call the function since DOMContentLoaded won't fire in jest
     const { initAudioPlayers } = require('../js/audio-system.js');
-    initAudioPlayers();
     
     const bandcamp = document.querySelector('.album-audio-player[data-type="bandcamp"]');
+    // Simulate stream loader setting the numeric album ID
+    bandcamp.setAttribute('data-album-id', '1234567890');
+    
+    initAudioPlayers();
+    
     expect(bandcamp.innerHTML).toMatch(/iframe/);
     expect(bandcamp.innerHTML).toMatch(/bandcamp.com\/EmbeddedPlayer/);
     const soundcloud = document.querySelector('.album-audio-player[data-type="soundcloud"]');

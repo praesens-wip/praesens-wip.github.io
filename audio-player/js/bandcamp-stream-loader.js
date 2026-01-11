@@ -29,6 +29,7 @@ async function loadBandcampStreamData(bandcampUrl) {
       duration: data.duration,
       trackId: data.trackId,
       albumId: data.albumId,
+      numericAlbumId: data.numericAlbumId,
       sourceUrl: bandcampUrl
     };
   } catch (error) {

@@ -63,8 +63,18 @@ exports.handler = async function(event, context) {
         let duration = 0;
 
         // Extract numeric album ID from HTML (for embed iframe)
+        // This is REQUIRED for the iframe to work correctly
         const albumIdMatch = html.match(/album=(\d+)/);
         const numericAlbumId = albumIdMatch ? albumIdMatch[1] : null;
+        
+        // If we don't have numeric album ID, this is a major problem
+        if (!numericAlbumId) {
+            return { 
+                statusCode: 404, 
+                headers: { "Access-Control-Allow-Origin": "*" },
+                body: JSON.stringify({ error: "Could not extract numeric album ID from Bandcamp page" })
+            };
+        }
 
         // Try parsing JSON (Best Method)
         try {
