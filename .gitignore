@@ -13,3 +13,6 @@ _backup/
 # IDE
 .idea/
 .vscode/
+# Local Netlify folder
+.netlify
+node_modules

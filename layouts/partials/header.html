@@ -1,0 +1,10 @@
+<header class="site-header">
+  <div class="header-container">
+    <a href="{{ "/" | relURL }}" class="site-logo">{{ .Site.Title }}</a>
+    <nav class="site-nav">
+      {{ range .Site.Params.menu }}
+        <a href="{{ .url | relURL }}" class="nav-link">{{ .name }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

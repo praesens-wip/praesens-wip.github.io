@@ -1,0 +1,9 @@
+{{ if .Site.Params.breadcrumbs.enabled }}
+<nav class="breadcrumbs">
+  <a href="{{ "/" | relURL }}">Home</a>
+  {{ range .Breadcrumbs }}
+    <span class="breadcrumb-separator">/</span>
+    <a href="{{ .URL | relURL }}">{{ .Title }}</a>
+  {{ end }}
+</nav>
+{{ end }}

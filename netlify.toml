@@ -1,0 +1,10 @@
+[build]
+command = "hugo"
+publish = "public"
+
+[build.environment]
+HUGO_VERSION = "0.154.2"
+
+# Functions configuration
+[functions]
+directory = "audio-player/functions"

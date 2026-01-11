@@ -20,36 +20,49 @@
         <span>{{ delimit .Params.album.genres ", " }}</span>
         {{ end }}
         {{ if and .Params.album.genres .Params.album.label }}
-        <span class="metadata-separator">•</span>
+        <span class="metadata-separator">
+          •
+        </span>
         {{ end }}
         {{ with .Params.album.label }}
         <span>{{ . }}</span>
         {{ end }}
         {{ with .Params.album.catalogNumber }}
-        <span class="metadata-separator">•</span>
+        <span class="metadata-separator">
+          •
+        </span>
         <span>{{ . }}</span>
         {{ end }}
         {{ with .Params.album.releaseYear }}
-        <span class="metadata-separator">•</span>
+        <span class="metadata-separator">
+          •
+        </span>
         <span>{{ . }}</span>
         {{ end }}
       </div>
     </header>
 
-    <!-- Streaming Links -->
-    {{ if or .Params.album.links.spotify .Params.album.links.bandcamp .Params.album.links.appleMusic }}
-    <div class="album-streaming-links">
-      {{ with .Params.album.links.spotify }}
-      <a href="{{ . }}" target="_blank" rel="noopener">Spotify</a>
-      {{ end }}
+    <!-- Audio Players and Links -->
+    <div class="album-audio">
       {{ with .Params.album.links.bandcamp }}
-      <a href="{{ . }}" target="_blank" rel="noopener">Bandcamp</a>
+      <div class="album-audio-player" data-type="bandcamp" data-url="{{ . }}"></div>
       {{ end }}
-      {{ with .Params.album.links.appleMusic }}
-      <a href="{{ . }}" target="_blank" rel="noopener">Apple Music</a>
+      {{ with .Params.album.links.soundcloud }}
+      <div class="album-audio-player" data-type="soundcloud" data-url="{{ . }}"></div>
       {{ end }}
+
+      <div class="album-streaming-links">
+        {{ with .Params.album.links.spotify }}
+        <a class="streaming-link spotify" href="{{ . }}" target="_blank" rel="noopener">Listen on Spotify</a>
+        {{ end }}
+        {{ with .Params.album.links.appleMusic }}
+        <a class="streaming-link apple-music" href="{{ . }}" target="_blank" rel="noopener">Listen on Apple Music</a>
+        {{ end }}
+        {{ with .Params.album.links.youtube }}
+        <a class="streaming-link youtube" href="{{ . }}" target="_blank" rel="noopener">Watch on YouTube</a>
+        {{ end }}
+      </div>
     </div>
-    {{ end }}
 
     <!-- Album Description -->
     {{ if .Content }}
