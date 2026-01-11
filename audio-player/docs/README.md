@@ -1,6 +1,15 @@
-# Audio Player Module
+# Audio Player Documentation
 
-Bundled audio player system for the Präsens collection. Handles Bandcamp and SoundCloud streaming with metadata extraction.
+Quick links to all documentation:
+
+- **Start here**: [`INDEX.md`](INDEX.md) - Navigation guide for all docs
+- **Adding albums**: [`BANDCAMP_QUICK_START.md`](BANDCAMP_QUICK_START.md) - Step-by-step guide
+- **How it works**: [`BANDCAMP_STREAMING.md`](BANDCAMP_STREAMING.md) - Technical deep dive
+- **Module overview**: [`../README.md`](../README.md) - Main module README
+
+---
+
+## Consolidated Documentation Index
 
 ## Directory Structure
 
@@ -184,6 +193,16 @@ No frontend dependencies required (vanilla JavaScript).
 - `content/collection/*/index.md` - Album content
 - `jest.config.js` - Test configuration
 - `package.json` - Dependencies
+
+## Recent Updates (January 2026)
+
+### Bug Fix: Numeric Album ID Requirement
+- Fixed "not available" error on Bandcamp embeds
+- Backend now requires numeric album ID extraction from HTML
+- Frontend stream loader passes numeric ID to trigger player rendering
+- Changed player size from large (120px) to small (42px)
+
+See [`../BANDCAMP_FIX_SUMMARY.md`](../BANDCAMP_FIX_SUMMARY.md) for complete details.
 
 ## License
 

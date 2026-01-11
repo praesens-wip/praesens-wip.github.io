@@ -181,6 +181,7 @@ Part of Präsens project. See root LICENSE file.
 
 ---
 
-**Last Updated**: January 7, 2026
+**Last Updated**: January 11, 2026
 **Status**: ✅ Fully functional and tested
 **Tests**: 18/18 passing
+**Bug Fix**: Numeric album ID requirement implemented (prevents "not available" errors)
