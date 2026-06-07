@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="session-page">
+  <article class="session-single">
+
+    <header class="session-hero">
+      <div class="session-hero-meta">
+        <span>session</span>
+        {{ with .Date }}
+        <time datetime="{{ .Format "2006-01-02" }}">{{ .Format "02 Jan 2006" }}</time>
+        {{ end }}
+      </div>
+
+      <h1 class="session-title">{{ .Title }}</h1>
+
+      {{ with .Params.session.location }}
+      <div class="session-location">
+        <span>lat {{ .latitude }}</span>
+        <span>lon {{ .longitude }}</span>
+      </div>
+      {{ end }}
+    </header>
+
+    <div class="session-body">
+      <div class="session-main">
+        {{ if .Content }}
+        <div class="session-content">
+          {{ .Content }}
+        </div>
+        {{ end }}
+
+        {{ with .Params.session.music }}
+        <section class="session-music">
+          <h2>Music</h2>
+
+          <ol class="session-music-list">
+            {{ range . }}
+          {{ $musicPage := site.GetPage . }}
+          {{ if $musicPage }}
+          <li class="session-music-item">
+            <a href="{{ $musicPage.RelPermalink }}">
+              {{ with $musicPage.Resources.GetMatch "cover.*" }}
+              <span class="session-music-cover">
+                <img src="{{ .RelPermalink }}" alt="{{ $musicPage.Title }} cover" />
+              </span>
+              {{ end }}
+              <span class="session-music-info">
+                <span class="session-music-artist">{{ $musicPage.Params.album.artist }}</span>
+                <span class="session-music-title">{{ $musicPage.Title }}{{ with $musicPage.Params.album.releaseYear }}, {{ . }}{{ end }}</span>
+              </span>
+            </a>
+          </li>
+          {{ end }}
+            {{ end }}
+          </ol>
+        </section>
+        {{ end }}
+      </div>
+    </div>
+
+  </article>
+</div>
+{{ end }}

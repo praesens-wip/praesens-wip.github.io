@@ -24,6 +24,10 @@ name = "collection"
 url = "/collection"
 
 [[params.menu]]
+name = "sessions"
+url = "/sessions"
+
+[[params.menu]]
 name = "blog"
 url = "/blog"
 

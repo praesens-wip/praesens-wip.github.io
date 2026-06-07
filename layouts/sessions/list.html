@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="sessions-index">
+
+  {{ partial "breadcrumbs.html" . }}
+
+  {{ with .Content }}
+  <div class="sessions-index-intro">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  <div class="sessions-log">
+    {{ range .Pages }}
+    <article class="sessions-log-item">
+      <a class="sessions-log-link" href="{{ .RelPermalink }}">
+        <span class="sessions-log-number">{{ printf "%02d" .Weight }}</span>
+        <span class="sessions-log-main">
+          <span class="sessions-log-title">{{ replaceRE "^#\\d+\\s+" "" .Title }}</span>
+          {{ with .Params.description }}
+          <span class="sessions-log-description">{{ . }}</span>
+          {{ end }}
+        </span>
+        {{ with .Params.session.location }}
+        <span class="sessions-log-location">
+          {{ .latitude }}, {{ .longitude }}
+        </span>
+        {{ end }}
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}
